@@ -19,10 +19,10 @@ public class hashMapDivision {
         
         else {
             Tuple temporaryHead = hashArray[position]; // temporaryHead recebe a cabeça da linked list
-            System.out.println("Colisão!");
+            System.out.println("===== Colisão! =====");
                         
             if(tuple.getKey() == hashArray[position].getKey()) {
-                System.out.println("Chave atualizada");
+                System.out.println("Chave atualizada. Chave antiga: " + hashArray[position].getValue());
                 temporaryHead.setValue(tuple.getValue());
                 return;
             }
@@ -37,7 +37,7 @@ public class hashMapDivision {
                 else {
                     while(temporaryHead.getNext() != null) { // percorre a lista até o nulo ou se encontrar um elemento de value semelhante.
                         if(temporaryHead.getNext().getKey() == tuple.getKey()) {
-                            System.out.println("Chave atualizada");
+                            System.out.println("Chave atualizada. Chave antiga: " + temporaryHead.getNext().getValue());
                             temporaryHead.setValue(tuple.getValue());
                             return;
                         }
@@ -45,8 +45,8 @@ public class hashMapDivision {
                     }
 
                     if (temporaryHead.getKey() == tuple.getKey()){ // caso de último da lista
+                        System.out.println("Chave atualizada. Chave antiga: " + temporaryHead.getValue());
                         temporaryHead.setValue(tuple.getValue());
-                        System.out.println("Chave atualizada.");
                         return;
                     }
                     temporaryHead.setNext(tuple);
