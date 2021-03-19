@@ -52,7 +52,7 @@ public class hashMapMultiply {
 
                     if (temporaryHead.getKey() == tuple.getKey()){ // caso de último da lista
                         System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
-                        // System.out.print(position+", ");  // // Linha inserida para o estudo e construção dos gráficos    
+                        // System.out.print(position+", ");  // Linha inserida para o estudo e construção dos gráficos    
                         temporaryHead.setValue(tuple.getValue());
                         return 1;
                     }
