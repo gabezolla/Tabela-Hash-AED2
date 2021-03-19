@@ -13,8 +13,8 @@ public class hashMapDivision {
 
         if(hashArray[position] == null) {
             hashArray[position] = tuple;    
-            // System.out.println("Novo valor inserido. Chave hash: " + position + ". Valor de chave: " +tuple.getValue());      
-            System.out.print(position+", ");      
+            System.out.println("Novo valor inserido. Chave hash: " + position + ". Valor de chave: " +tuple.getValue());      
+            // System.out.print(position+", "); // Linha inserida para o estudo e construção dos gráficos  
             return 0;  
         } 
         
@@ -24,8 +24,8 @@ public class hashMapDivision {
             
                         
             if(tuple.getKey() == hashArray[position].getKey()) {
-                // System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + hashArray[position].getValue());
-                System.out.print(position+", "); 
+                System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + hashArray[position].getValue());
+                // System.out.print(position+", "); // Linha inserida para o estudo e construção dos gráficos
                 temporaryHead.setValue(tuple.getValue());
                 return 1;
             }
@@ -40,8 +40,8 @@ public class hashMapDivision {
                 else {
                     while(temporaryHead.getNext() != null) { // percorre a lista até o nulo ou se encontrar um elemento de value semelhante.
                         if(temporaryHead.getNext().getKey() == tuple.getKey()) {
-                            // System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + temporaryHead.getNext().getValue());
-                            System.out.print(position+", ");
+                            System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + temporaryHead.getNext().getValue());
+                            // System.out.print(position+", "); // Linha inserida para o estudo e construção dos gráficos
                             temporaryHead.setValue(tuple.getValue());
                             return 1;
                         }
@@ -49,15 +49,15 @@ public class hashMapDivision {
                     }
 
                     if (temporaryHead.getKey() == tuple.getKey()){ // caso de último da lista
-                        // System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
-                        System.out.print(position+", ");      
+                        System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
+                        // System.out.print(position+", "); // Linha inserida para o estudo e construção dos gráficos     
                         temporaryHead.setValue(tuple.getValue());
                         return 1;
                     }
 
                     temporaryHead.setNext(tuple);
-                    //System.out.println("Nova chave inserida na lista. Chave hash: " +position+ ". Valor de Chave: " + temporaryHead.getNext().getValue());
-                    System.out.print(position+", ");
+                    System.out.println("Nova chave inserida na lista. Chave hash: " +position+ ". Valor de Chave: " + temporaryHead.getNext().getValue());
+                    // System.out.print(position+", "); // Linha inserida para o estudo e construção dos gráficos
                     return 1;
                 }
             }            
