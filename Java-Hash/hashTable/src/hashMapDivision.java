@@ -2,56 +2,63 @@ public class hashMapDivision {
 
     private Tuple hashArray[];
     private int module;
-
+    
     public hashMapDivision(int m) {
-        hashArray = new Tuple[100];
+        hashArray = new Tuple[m];
         this.module = m;
     }
 
-    public void insertOnHash(Tuple tuple) {
+    public int insertOnHash(Tuple tuple) {
         int position = (tuple.getKey()%module);
 
         if(hashArray[position] == null) {
             hashArray[position] = tuple;    
-            System.out.println("Novo valor inserido.");      
-            return;  
+            // System.out.println("Novo valor inserido. Chave hash: " + position + ". Valor de chave: " +tuple.getValue());      
+            System.out.print(position+", ");      
+            return 0;  
         } 
         
         else {
             Tuple temporaryHead = hashArray[position]; // temporaryHead recebe a cabeça da linked list
-            System.out.println("===== Colisão! =====");
+            // System.out.println("===== Colisão! =====");
+            
                         
             if(tuple.getKey() == hashArray[position].getKey()) {
-                System.out.println("Chave atualizada. Chave antiga: " + hashArray[position].getValue());
+                // System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + hashArray[position].getValue());
+                System.out.print(position+", "); 
                 temporaryHead.setValue(tuple.getValue());
-                return;
+                return 1;
             }
 
             else {                 
 
                 if(temporaryHead.getNext() == null) { // caso de lista com um único elemento
                     temporaryHead.setNext(tuple);
-                    return;
+                    return 1;
                 }
 
                 else {
                     while(temporaryHead.getNext() != null) { // percorre a lista até o nulo ou se encontrar um elemento de value semelhante.
                         if(temporaryHead.getNext().getKey() == tuple.getKey()) {
-                            System.out.println("Chave atualizada. Chave antiga: " + temporaryHead.getNext().getValue());
+                            // System.out.println("Chave atualizada. Chave hash: " +position+ ". Valor de chave antiga: " + temporaryHead.getNext().getValue());
+                            System.out.print(position+", ");
                             temporaryHead.setValue(tuple.getValue());
-                            return;
+                            return 1;
                         }
                         temporaryHead = temporaryHead.getNext();                 
                     }
 
                     if (temporaryHead.getKey() == tuple.getKey()){ // caso de último da lista
-                        System.out.println("Chave atualizada. Chave antiga: " + temporaryHead.getValue());
+                        // System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
+                        System.out.print(position+", ");      
                         temporaryHead.setValue(tuple.getValue());
-                        return;
+                        return 1;
                     }
+
                     temporaryHead.setNext(tuple);
-                    System.out.println("Nova chave inserida no fim da lista.");
-                    return;
+                    //System.out.println("Nova chave inserida na lista. Chave hash: " +position+ ". Valor de Chave: " + temporaryHead.getNext().getValue());
+                    System.out.print(position+", ");
+                    return 1;
                 }
             }            
         }
