@@ -20,7 +20,7 @@ public class hashMapDivision {
         
         else {
             Tuple temporaryHead = hashArray[position]; // temporaryHead recebe a cabeça da linked list
-            // System.out.println("===== Colisão! =====");
+            System.out.println("===== Colisão! =====");
             
                         
             if(tuple.getKey() == hashArray[position].getKey()) {
