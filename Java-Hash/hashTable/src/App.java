@@ -5,31 +5,17 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        int m = 97;
-        hashMapDivision h1 = new hashMapDivision(m);
+        int m = 200;
+        double A = 0.61803398875;
+        // hashMapDivision h1 = new hashMapDivision(m);
+        hashMapMultiply h2 = new hashMapMultiply(m, A);
         int collisionCounter = 0;   
         Scanner scan = new Scanner(System.in);
 
-        /* Tuple t1 = new Tuple(123, "abc");
-        Tuple t2 = new Tuple(223, "abc");
-        Tuple t3 = new Tuple(248, "abc");
-        Tuple t4 = new Tuple(235, "abc");
-        Tuple t5 = new Tuple(642, "abc");
-
-        h1.insertOnHash(t1);
-        h1.insertOnHash(t2);
-        h1.insertOnHash(t3);
-        h1.insertOnHash(t4);
-        h1.insertOnHash(t5);
-        System.out.println("Chave: " + h1.returnFromHash(123));
-        System.out.println("Chave: " + h1.returnFromHash(223));
-        System.out.println("Chave: " + h1.returnFromHash(248));
-        System.out.println("Chave: " + h1.returnFromHash(235));
-        System.out.println("Chave: " + h1.returnFromHash(642)); */        
-        
+        // Generate hash table...       
         for(int i = 0; i<10000; i++) {  
             
-            // STRING GENERATOR
+            // Generate random String...
             String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
             StringBuilder sb = new StringBuilder(7);    
 
@@ -38,12 +24,15 @@ public class App {
                 sb.append(AlphaNumericString .charAt(index)); // add Character one by one in end of sb 
             } 
             String randomString = sb.toString();
-            // END OF STRING GENERATOR
+            // End of String Generator
 
-            // NUMBER GENERATOR
+            // Generate a random Integer...
             int randomNumber = Math.round((float)Math.random()*100);
-            Tuple t = new Tuple(randomNumber, randomString);            
-            if(h1.insertOnHash(t) == 1) collisionCounter++;            
+            Tuple t = new Tuple(randomNumber, randomString);  
+
+            // if(h1.insertOnHash(t) == 1) collisionCounter++;  
+            if(h2.insertOnHash(t) == 1) collisionCounter++;  
+                     
         }
 
         System.out.print("\n\n===== NÚMERO DE COLISÕES: ");
