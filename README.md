@@ -6,8 +6,7 @@ O repositório em questão pode ser encontrado no seguinte link: https://github.
 Caso queira apenas os valores do array para cada valor de chave, basta comentar as linhas que correspondem à:
 
 System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
-System.out.println("===== Colisão! =====");
-
+System.out.println("===== Colisão! =====");  
 E SIMILARES.
 
 E descomentar as linhas: 
