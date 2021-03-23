@@ -7,7 +7,7 @@ Caso queira apenas os valores do array para cada valor de chave, basta comentar 
 
 System.out.println("Chave atualizada. Valor de chave antiga: " + temporaryHead.getValue());
 System.out.println("===== Colisão! =====");
-E SIMILARES.
+\nE SIMILARES.
 
 E descomentar as linhas: 
 
